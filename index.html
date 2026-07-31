@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio and career journey of Ghanshyam Khatri — Senior Technical Lead and Full Stack Developer specializing in .NET, Angular, Microservices, Azure, and AI-assisted development.">
+  <meta name="theme-color" content="#08111f">
+  <title>Ghanshyam Khatri | Senior Technical Lead</title>
+  <style>
+    :root {
+      --bg: #08111f;
+      --bg-soft: #0d192b;
+      --panel: rgba(16, 31, 51, .76);
+      --panel-solid: #102038;
+      --line: rgba(163, 190, 218, .16);
+      --text: #f4f8fc;
+      --muted: #9eb1c8;
+      --blue: #58a6ff;
+      --cyan: #53e0d1;
+      --purple: #9d8cff;
+      --orange: #ffb86b;
+      --shadow: 0 24px 70px rgba(0, 0, 0, .28);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(circle at 85% 5%, rgba(76, 134, 255, .14), transparent 28rem),
+        radial-gradient(circle at 0% 34%, rgba(83, 224, 209, .08), transparent 26rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+    .eyebrow {
+      color: var(--cyan);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .section { padding: 105px 0; position: relative; }
+    .section-heading { max-width: 700px; margin-bottom: 46px; }
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      letter-spacing: -.055em;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .section-heading p { color: var(--muted); font-size: 1.05rem; }
+    .gradient-text {
+      background: linear-gradient(100deg, var(--blue), var(--cyan) 55%, var(--purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav {
+      position: fixed;
+      z-index: 20;
+      top: 0;
+      width: 100%;
+      background: rgba(8, 17, 31, .68);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid transparent;
+      transition: .3s ease;
+    }
+    .nav.scrolled { border-bottom-color: var(--line); background: rgba(8, 17, 31, .9); }
+    .nav-inner { height: 76px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.02em; }
+    .brand-mark {
+      width: 38px; height: 38px; display: grid; place-items: center;
+      border-radius: 12px; color: #06111f; font-weight: 900;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      box-shadow: 0 8px 25px rgba(83, 224, 209, .22);
+    }
+    .nav-links { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: .9rem; }
+    .nav-links a { transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .menu-button { display: none; background: none; color: var(--text); border: 0; font-size: 1.5rem; cursor: pointer; }
+
+    .hero { min-height: 760px; padding: 170px 0 110px; display: flex; align-items: center; }
+    .hero-grid { display: grid; grid-template-columns: 1.06fr .94fr; gap: 70px; align-items: center; }
+    .hero h1 { font-size: clamp(3.1rem, 7vw, 6.4rem); letter-spacing: -.08em; line-height: .94; max-width: 760px; }
+    .hero-copy { color: var(--muted); font-size: 1.12rem; max-width: 650px; margin: 26px 0 33px; }
+    .actions { display: flex; gap: 13px; flex-wrap: wrap; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      border: 1px solid var(--line); border-radius: 12px; padding: 12px 18px;
+      font-size: .9rem; font-weight: 750; cursor: pointer; transition: .25s;
+    }
+    .button.primary { color: #06111f; border-color: transparent; background: linear-gradient(110deg, var(--cyan), var(--blue)); }
+    .button.secondary { background: rgba(255,255,255,.035); color: var(--text); }
+    .button:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.2); }
+    .availability { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: .82rem; margin-top: 32px; }
+    .pulse { width: 9px; height: 9px; background: #62e6a8; border-radius: 50%; box-shadow: 0 0 0 6px rgba(98,230,168,.12); }
+
+    .hero-card {
+      min-height: 440px; padding: 26px; position: relative; overflow: hidden;
+      border: 1px solid var(--line); border-radius: 28px; background: linear-gradient(150deg, rgba(26,51,80,.8), rgba(12,27,45,.55));
+      box-shadow: var(--shadow);
+    }
+    .hero-card:before {
+      content: ""; position: absolute; width: 240px; height: 240px; border-radius: 50%;
+      right: -80px; top: -80px; background: rgba(83,224,209,.11); filter: blur(2px);
+    }
+    .terminal-top { display: flex; gap: 7px; margin-bottom: 28px; }
+    .terminal-top i { width: 9px; height: 9px; border-radius: 50%; background: #ff6b7a; }
+    .terminal-top i:nth-child(2) { background: var(--orange); }
+    .terminal-top i:nth-child(3) { background: var(--cyan); }
+    .code { font: .9rem/2 "SFMono-Regular", Consolas, monospace; color: #b9cce1; }
+    .code .key { color: var(--purple); }
+    .code .value { color: var(--cyan); }
+    .code .string { color: var(--orange); }
+    .architecture {
+      margin-top: 27px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px;
+    }
+    .architecture span {
+      padding: 12px 8px; text-align: center; border-radius: 11px; color: var(--muted);
+      border: 1px solid var(--line); font-size: .72rem; background: rgba(255,255,255,.035);
+    }
+    .architecture span:first-child { border-color: rgba(83,224,209,.4); color: var(--cyan); }
+    .architecture span:nth-child(2) { border-color: rgba(88,166,255,.4); color: var(--blue); }
+    .architecture span:nth-child(3) { border-color: rgba(157,140,255,.4); color: var(--purple); }
+
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .metric { padding: 30px 18px; text-align: center; border-right: 1px solid var(--line); }
+    .metric:last-child { border: 0; }
+    .metric strong { display: block; font-size: 2.15rem; letter-spacing: -.06em; }
+    .metric span { color: var(--muted); font-size: .83rem; }
+
+    .competencies { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .competency, .skill-card, .contact-card, .education-card {
+      border: 1px solid var(--line); background: var(--panel); border-radius: var(--radius); box-shadow: 0 12px 40px rgba(0,0,0,.1);
+    }
+    .competency { padding: 25px; min-height: 140px; transition: .25s; }
+    .competency:hover { transform: translateY(-5px); border-color: rgba(83,224,209,.4); }
+    .icon { color: var(--cyan); font-size: 1.35rem; margin-bottom: 13px; }
+    .competency h3 { font-size: 1rem; margin-bottom: 6px; }
+    .competency p { color: var(--muted); font-size: .86rem; }
+
+    .timeline { position: relative; max-width: 990px; margin: auto; }
+    .timeline:before { content: ""; position: absolute; left: 17px; top: 12px; bottom: 12px; width: 1px; background: linear-gradient(var(--cyan), var(--purple), transparent); }
+    .job { position: relative; padding-left: 62px; margin-bottom: 42px; }
+    .job:last-child { margin-bottom: 0; }
+    .job-dot { position: absolute; left: 9px; top: 7px; width: 17px; height: 17px; border-radius: 50%; background: var(--bg); border: 4px solid var(--cyan); box-shadow: 0 0 0 6px rgba(83,224,209,.1); }
+    .job-card { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(145deg, rgba(20,39,63,.8), rgba(12,25,42,.7)); }
+    .job-header { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; margin-bottom: 6px; }
+    .job-title { font-size: 1.24rem; }
+    .job-company { color: var(--blue); font-weight: 650; }
+    .job-date { color: var(--cyan); white-space: nowrap; font-size: .85rem; font-weight: 700; }
+    .product { color: var(--orange); font-size: .88rem; font-style: italic; margin: 3px 0 17px; }
+    .job ul { list-style: none; color: var(--muted); font-size: .91rem; }
+    .job li { position: relative; padding-left: 20px; margin: 8px 0; }
+    .job li:before { content: "▸"; position: absolute; left: 0; color: var(--cyan); }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 21px; }
+    .tag { padding: 5px 9px; border-radius: 7px; background: rgba(88,166,255,.1); color: #a9d0ff; font-size: .72rem; border: 1px solid rgba(88,166,255,.17); }
+
+    .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .skill-card { padding: 25px; }
+    .skill-card h3 { color: var(--text); margin-bottom: 16px; font-size: 1rem; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-pill { color: var(--muted); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; font-size: .78rem; transition: .2s; }
+    .skill-pill:hover { color: var(--text); border-color: var(--cyan); background: rgba(83,224,209,.07); }
+
+    .profile-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; }
+    .education-card { padding: 28px; }
+    .education-card h3 { margin-bottom: 25px; }
+    .degree { border-left: 2px solid var(--cyan); padding-left: 16px; margin: 20px 0; }
+    .degree strong { display: block; }
+    .degree span { color: var(--muted); font-size: .87rem; }
+    .award { padding: 13px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+    .award:last-child { border: 0; }
+
+    .contact-wrap { display: grid; grid-template-columns: 1fr .9fr; gap: 20px; align-items: stretch; }
+    .contact-card { padding: 34px; }
+    .contact-card h2 { font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -.06em; line-height: 1.03; margin-bottom: 16px; }
+    .contact-card p { color: var(--muted); }
+    .contact-list { display: grid; gap: 14px; margin-top: 27px; }
+    .contact-item { display: flex; gap: 13px; align-items: center; color: var(--muted); font-size: .9rem; }
+    .contact-item b { color: var(--cyan); font-size: 1rem; }
+    .contact-item a:hover { color: var(--text); }
+    .deploy-card { background: linear-gradient(145deg, rgba(88,166,255,.18), rgba(157,140,255,.1)); }
+    .deploy-card h3 { font-size: 1.3rem; margin-bottom: 13px; }
+    .deploy-card p { margin-bottom: 22px; }
+    .deploy-steps { display: grid; gap: 12px; }
+    .deploy-step { display: flex; gap: 12px; color: var(--muted); font-size: .86rem; }
+    .step-number { flex: 0 0 24px; height: 24px; display: grid; place-items: center; border-radius: 50%; background: var(--cyan); color: var(--bg); font-size: .72rem; font-weight: 900; }
+
+    footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: .8rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+    .back-top { color: var(--cyan); }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 800px) {
+      .container { width: min(var(--max), calc(100% - 28px)); }
+      .section { padding: 75px 0; }
+      .nav-links {
+        display: none; position: absolute; top: 76px; left: 14px; right: 14px; padding: 18px;
+        flex-direction: column; align-items: stretch; gap: 0; border: 1px solid var(--line);
+        background: rgba(13,25,43,.97); border-radius: 15px;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 11px; }
+      .menu-button { display: block; }
+      .hero { min-height: auto; padding: 130px 0 75px; }
+      .hero-grid, .profile-grid, .contact-wrap { grid-template-columns: 1fr; gap: 34px; }
+      .hero-card { min-height: 370px; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .metric:nth-child(2) { border-right: 0; }
+      .metric:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .competencies { grid-template-columns: 1fr 1fr; }
+      .skills-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 500px) {
+      .hero h1 { font-size: 3.25rem; }
+      .competencies { grid-template-columns: 1fr; }
+      .job { padding-left: 42px; }
+      .timeline:before { left: 11px; }
+      .job-dot { left: 3px; }
+      .job-card { padding: 21px 18px; }
+      .job-header { display: block; }
+      .job-date { display: block; margin-top: 8px; }
+      .architecture { grid-template-columns: 1fr; }
+      .footer-inner { display: block; }
+      .footer-inner .back-top { display: block; margin-top: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Ghanshyam Khatri home">
+        <span class="brand-mark">GK</span>
+        <span>Ghanshyam Khatri</span>
+      </a>
+      <button class="menu-button" id="menuButton" aria-label="Toggle navigation">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Credentials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Senior Technical Lead · Full Stack Developer</div>
+          <h1>Building systems that <span class="gradient-text">scale with purpose.</span></h1>
+          <p class="hero-copy">
+            Results-driven technology leader with 12+ years of experience delivering resilient, high-throughput applications across payment, insurance, financial services, and enterprise domains.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#experience">Explore my journey <span>↓</span></a>
+            <a class="button secondary" href="mailto:ghanshyam.khatri@hotmail.com">Let's connect ↗</a>
+          </div>
+          <div class="availability"><span class="pulse"></span> Based in Pune, Maharashtra · Open to meaningful opportunities</div>
+        </div>
+        <div class="hero-card reveal">
+          <div class="terminal-top"><i></i><i></i><i></i></div>
+          <div class="code">
+            <div><span class="key">const</span> engineer = {</div>
+            <div>&nbsp;&nbsp;name: <span class="string">'Ghanshyam Khatri'</span>,</div>
+            <div>&nbsp;&nbsp;role: <span class="string">'Technical Lead'</span>,</div>
+            <div>&nbsp;&nbsp;experience: <span class="value">12+</span>,</div>
+            <div>&nbsp;&nbsp;focus: [</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'Microservices'</span>,</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'.NET + Angular'</span>,</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'Azure Cloud'</span>,</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'AI-assisted delivery'</span></div>
+            <div>&nbsp;&nbsp;],</div>
+            <div>&nbsp;&nbsp;mindset: <span class="string">'Build. Lead. Improve.'</span></div>
+            <div>};</div>
+          </div>
+          <div class="architecture">
+            <span>API Layer</span><span>Event Mesh</span><span>Cloud Core</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container metrics reveal" aria-label="Career highlights">
+      <div class="metric"><strong>12+</strong><span>Years of experience</span></div>
+      <div class="metric"><strong>4</strong><span>Organizations</span></div>
+      <div class="metric"><strong>3</strong><span>Developers led</span></div>
+      <div class="metric"><strong>∞</strong><span>Curiosity to improve</span></div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">What I bring</div>
+          <h2>Technical depth, <span class="gradient-text">human leadership.</span></h2>
+          <p>From architecture discussions to production support, I connect strategic thinking with hands-on engineering and dependable delivery.</p>
+        </div>
+        <div class="competencies">
+          <article class="competency reveal"><div class="icon">◈</div><h3>Microservices Architecture</h3><p>Designing distributed, resilient services for high-volume business workflows.</p></article>
+          <article class="competency reveal"><div class="icon">⌘</div><h3>Full Stack Development</h3><p>Building complete experiences with .NET, C#, Angular, TypeScript, and modern APIs.</p></article>
+          <article class="competency reveal"><div class="icon">☁</div><h3>Azure Cloud</h3><p>Cloud-native platforms using Functions, Cosmos DB, Key Vault, and App Services.</p></article>
+          <article class="competency reveal"><div class="icon">◎</div><h3>Technical Leadership</h3><p>Leading teams through design, code review, mentoring, delivery, and support.</p></article>
+          <article class="competency reveal"><div class="icon">◇</div><h3>Quality by Design</h3><p>SOLID principles, patterns, testability, documentation, and zero-defect thinking.</p></article>
+          <article class="competency reveal"><div class="icon">✦</div><h3>AI-Assisted Development</h3><p>Using Copilot and ChatGPT to accelerate coding, testing, refactoring, and reviews.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Career timeline</div>
+          <h2>A journey of <span class="gradient-text">progressive impact.</span></h2>
+          <p>Growing from full-stack application development into architecture, cloud engineering, and technical leadership.</p>
+        </div>
+        <div class="timeline">
+          <article class="job reveal">
+            <div class="job-dot"></div>
+            <div class="job-card">
+              <div class="job-header"><div><h3 class="job-title">Senior Technical Lead</h3><div class="job-company">Infinite Computer Solutions Pvt Ltd · Pune</div></div><div class="job-date">Dec 2022 — Present</div></div>
+              <div class="product">Customer Payment System · Real-time ACH & Batch Payment Processing</div>
+              <ul>
+                <li>Architected a scalable Azure and .NET Core microservices platform handling real-time ACH transactions across multiple payment channels.</li>
+                <li>Designed event-driven communication and batch workflows with Azure Functions and Cosmos DB to support millions of daily transactions.</li>
+                <li>Led 3 developers across requirements, design, reviews, deployments, and post-release support.</li>
+                <li>Introduced SOLID, Repository Pattern, Dependency Injection, secure Key Vault configuration, and Application Insights monitoring.</li>
+                <li>Championed GitHub Copilot and Microsoft Copilot for code generation, test scaffolding, reviews, and productivity.</li>
+              </ul>
+              <div class="tags"><span class="tag">.NET Core</span><span class="tag">Azure Functions</span><span class="tag">Cosmos DB</span><span class="tag">Microservices</span><span class="tag">AI Tools</span></div>
+            </div>
+          </article>
+          <article class="job reveal">
+            <div class="job-dot"></div>
+            <div class="job-card">
+              <div class="job-header"><div><h3 class="job-title">System Analyst</h3><div class="job-company">Fiserv India Private Ltd · Pune</div></div><div class="job-date">May 2019 — Nov 2022</div></div>
+              <div class="product">UnderwritingPro · Life Insurance Platform & Payment Switch</div>
+              <ul>
+                <li>Developed RESTful microservices for e-application capture, workflow management, and third-party integrations.</li>
+                <li>Built card-transaction routing services with Redis caching to reduce latency under peak load.</li>
+                <li>Designed RabbitMQ messaging for resilient, asynchronous inter-service communication.</li>
+                <li>Translated complex business requirements into modular Angular components and testable .NET services.</li>
+              </ul>
+              <div class="tags"><span class="tag">Angular 13</span><span class="tag">TypeScript</span><span class="tag">RabbitMQ</span><span class="tag">Redis</span><span class="tag">SQL Server</span></div>
+            </div>
+          </article>
+          <article class="job reveal">
+            <div class="job-dot"></div>
+            <div class="job-card">
+              <div class="job-header"><div><h3 class="job-title">Associate Principal Software Engineer</h3><div class="job-company">Afour Technologies Pvt Ltd</div></div><div class="job-date">Nov 2016 — May 2019</div></div>
+              <div class="product">Shelf Bot Co. · B2B Distribution Platform & FixStream Network</div>
+              <ul>
+                <li>Led the front-end architecture migration from AngularJS to Angular for improved scalability and maintainability.</li>
+                <li>Developed REST integrations supporting Active Directory discovery and service inventory reporting.</li>
+                <li>Optimized PowerShell automation and applied Factory and Repository patterns across .NET services.</li>
+              </ul>
+              <div class="tags"><span class="tag">Angular</span><span class="tag">ASP.NET MVC</span><span class="tag">PowerShell</span><span class="tag">RabbitMQ</span></div>
+            </div>
+          </article>
+          <article class="job reveal">
+            <div class="job-dot"></div>
+            <div class="job-card">
+              <div class="job-header"><div><h3 class="job-title">Senior Software Developer</h3><div class="job-company">Planfirma Technologies Pvt Ltd · Mumbai</div></div><div class="job-date">Aug 2013 — Nov 2016</div></div>
+              <div class="product">Attendance & Access Control ERP · Almondz EB-Portal</div>
+              <ul>
+                <li>Delivered full-stack HR, employee self-service, insurance, and wellness applications using ASP.NET MVC, C#, Entity Framework, and SQL Server.</li>
+                <li>Designed optimized schemas, stored procedures, triggers, and indexes and configured applications on IIS.</li>
+                <li>Delivered health tracking, surveys, and real-time doctor chat enhancements based on stakeholder feedback.</li>
+              </ul>
+              <div class="tags"><span class="tag">C#</span><span class="tag">ASP.NET MVC</span><span class="tag">Entity Framework</span><span class="tag">IIS</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Technology stack</div>
+          <h2>The tools behind the <span class="gradient-text">outcomes.</span></h2>
+          <p>A broad engineering toolkit shaped by years of shipping and supporting enterprise software.</p>
+        </div>
+        <div class="skills-layout">
+          <div class="skill-card reveal"><h3>Backend & Architecture</h3><div class="skill-list"><span class="skill-pill">C#</span><span class="skill-pill">.NET Core 3.1 / 5 / 6 / 8</span><span class="skill-pill">ASP.NET MVC</span><span class="skill-pill">Web API</span><span class="skill-pill">WCF</span><span class="skill-pill">EF Core</span><span class="skill-pill">Dapper</span><span class="skill-pill">LINQ</span><span class="skill-pill">CQRS</span><span class="skill-pill">DDD</span><span class="skill-pill">SOLID</span><span class="skill-pill">Dependency Injection</span></div></div>
+          <div class="skill-card reveal"><h3>Frontend</h3><div class="skill-list"><span class="skill-pill">Angular 9 / 10 / 13 / 18</span><span class="skill-pill">TypeScript</span><span class="skill-pill">JavaScript</span><span class="skill-pill">HTML5</span><span class="skill-pill">CSS3</span><span class="skill-pill">Bootstrap</span><span class="skill-pill">jQuery</span><span class="skill-pill">XML</span><span class="skill-pill">JSON</span></div></div>
+          <div class="skill-card reveal"><h3>Azure Cloud & Data</h3><div class="skill-list"><span class="skill-pill">App Services</span><span class="skill-pill">Azure Functions</span><span class="skill-pill">API Management</span><span class="skill-pill">Azure Storage</span><span class="skill-pill">Cosmos DB</span><span class="skill-pill">Azure SQL</span><span class="skill-pill">Key Vault</span><span class="skill-pill">Application Insights</span><span class="skill-pill">Logic Apps</span><span class="skill-pill">Data Factory</span><span class="skill-pill">Power BI</span></div></div>
+          <div class="skill-card reveal"><h3>Messaging, DevOps & AI</h3><div class="skill-list"><span class="skill-pill">RabbitMQ</span><span class="skill-pill">Redis</span><span class="skill-pill">GitHub</span><span class="skill-pill">Azure DevOps</span><span class="skill-pill">TFS</span><span class="skill-pill">JIRA</span><span class="skill-pill">PowerShell</span><span class="skill-pill">Postman</span><span class="skill-pill">GitHub Copilot</span><span class="skill-pill">ChatGPT</span><span class="skill-pill">Microsoft Copilot</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Credentials</div>
+          <h2>Foundation for <span class="gradient-text">continuous growth.</span></h2>
+        </div>
+        <div class="profile-grid">
+          <div class="education-card reveal">
+            <h3>Education</h3>
+            <div class="degree"><strong>Master of Computer Applications (MCA)</strong><span>Rajasthan Technical University, Kota · 2010 — 2013</span></div>
+            <div class="degree"><strong>Bachelor of Computer Applications (BCA)</strong><span>Jai Narayan Vyas University, Jodhpur · 2007 — 2010</span></div>
+          </div>
+          <div class="education-card reveal">
+            <h3>Certification & Awards</h3>
+            <div class="award">Microsoft Certified: Azure Data Fundamentals<br><small>Certification ID: 12251771</small></div>
+            <div class="award">Best Employee of the Year — 2017</div>
+            <div class="award">Best Employee of the Year — 2015</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="eyebrow">Start a conversation</div>
+          <h2>Let's build something <span class="gradient-text">reliable.</span></h2>
+          <p>Have an architecture challenge, a product idea, or an opportunity where technical leadership matters? I would be glad to connect.</p>
+          <div class="contact-list">
+            <div class="contact-item"><b>☎</b><a href="tel:+917014378745">+91 7014378745</a></div>
+            <div class="contact-item"><b>✉</b><a href="mailto:ghanshyam.khatri@hotmail.com">ghanshyam.khatri@hotmail.com</a></div>
+            <div class="contact-item"><b>⌖</b><span>Pune, Maharashtra 411028</span></div>
+            <div class="contact-item"><b>in</b><a href="#" onclick="alert('Add your LinkedIn profile URL here.'); return false;">LinkedIn profile</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Ghanshyam Khatri. Built with clarity and purpose.</span>
+      <a class="back-top" href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const menuButton = document.getElementById('menuButton');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    menuButton.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      menuButton.textContent = navLinks.classList.contains('open') ? '×' : '☰';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.textContent = '☰';
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .12 });
+
+    document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+  </script>
+</body>
+</html>
